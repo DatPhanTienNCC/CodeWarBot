@@ -36,21 +36,23 @@ class Grid {
     recommendSwapGem() {
         let listMatchGem = this.suggestMatch();
 
+        console.log(listMatchGem);
+
         if (listMatchGem.length === 0) {
             return [-1, -1];
         }
 
-        debugger
-
         let matchGemSizeThanFour = listMatchGem.find(gemMatch => gemMatch.sizeMatch > 4);
 
         if (matchGemSizeThanFour) {
+            debugger
             return matchGemSizeThanFour.getIndexSwapGem();
         }
 
         let matchGemSizeThanThree = listMatchGem.find(gemMatch => gemMatch.sizeMatch > 3);
 
         if (matchGemSizeThanThree) {
+            debugger
             return matchGemSizeThanThree.getIndexSwapGem();
         }
 
@@ -92,17 +94,20 @@ class Grid {
         if (matchGemSword) {
             return matchGemSword.getIndexSwapGem();
         }
+
+        return listMatchGem[0].getIndexSwapGem();
+
     }
 
     recommendSwapGemSword() {
         //TODO check if death
         let listMatchGem = this.suggestMatch();
+        
+        console.log(listMatchGem);
 
         if (listMatchGem.length === 0) {
             return [-1, -1];
         }
-
-        debugger
 
         let matchGemSword = listMatchGem.find(gemMatch => gemMatch.type == GemType.SWORD);
 
@@ -113,12 +118,13 @@ class Grid {
         let matchGemSizeThanFour = listMatchGem.find(gemMatch => gemMatch.sizeMatch > 4);
 
         if (matchGemSizeThanFour) {
+            debugger
             return matchGemSizeThanFour.getIndexSwapGem();
         }
-
         let matchGemSizeThanThree = listMatchGem.find(gemMatch => gemMatch.sizeMatch > 3);
 
         if (matchGemSizeThanThree) {
+            debugger
             return matchGemSizeThanThree.getIndexSwapGem();
         }
 
@@ -154,6 +160,8 @@ class Grid {
         if (matchGemYellow && botPlayer.checkHeroGemIsUsable(GemType.YELLOW)) {
             return matchGemYellow.getIndexSwapGem();
         }
+
+        return listMatchGem[0].getIndexSwapGem();
     }
 
 
@@ -213,7 +221,7 @@ class Grid {
 
 
         if (matchGems.size > 0) {
-            listMatchGem.push(new GemSwapInfo(currentGem.index, swapGem.index, matchGems.length, currentGem.type));
+            listMatchGem.push(new GemSwapInfo(currentGem.index, swapGem.index, matchGems.size, currentGem.type));
         }
     }
 
@@ -463,6 +471,16 @@ class Grid {
             this.performReshape();
         }
         return false;
+    }
+
+    getRedGemCount() {
+        let count = 0;
+        this.gems.forEach(gem=>{
+            if(gem.type == 3) {
+                count++;
+            }
+        });
+        return count;
     }
 
     clone() {

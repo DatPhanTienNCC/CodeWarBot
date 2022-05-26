@@ -44,14 +44,11 @@ class Player
     anyHeroFullMana() {
         let arr = this.heroes.filter(hero => hero.isAlive() && hero.isFullMana());
         let selectedHero = arr[0];
-        if(arr.length == 2) {
-            console.log(arr[0]);
-            selectedHero = arr[1];
-        } 
-        else if(arr.length == 3) {
-            console.log(arr[0]);
-            selectedHero = arr[2];
-        } 
+        //TODO 5 red dont use skill
+        //If red < 5 dont use skill FIRE SPIRIT
+        // if(selectedHero.id == "FIRE_SPIRIT") {
+        //      if(grid.getRedGemCount < 5) return null;
+        // }
         let hero = arr != null && arr != undefined && arr.length > 0 ? selectedHero : null;
         return hero;
     }
@@ -60,7 +57,6 @@ class Player
         let enemyHeros = enemyPlayer.heroes;
         let firstEnemyHero = enemyHeros.filter(hero => hero.hp > 0)[0];
         let firstPlayerHero = this.getHerosAlive()[0];
-        console.log(firstPlayerHero.attack > firstEnemyHero.hp);
         return firstPlayerHero.attack > firstEnemyHero.hp;
     }
 
@@ -72,14 +68,67 @@ class Player
     }
 
     checkHeroGemIsUsable(type) {
-        console.log(type);
         let arr = this.heroes.filter(hero => hero.isAlive());
+        let gemTypes = [];
         arr.forEach(hero => {
-            let gems = hero.gems;
-                gems.forEach(gem => {
-                    return gem.toString() === type;
-                });
+            hero.gems.forEach(gem => {
+                gemTypes.push(gem);
+            });
         });
+        return gemTypes.includes(type);
+    }
+    getOptimizeSkillList(castedHero){
+        //if target enemy -> cast on CERBERUS / Trau / Zues / Instant Kill
+        //if target allies-> cast CERBERRUS
+        let targetObj = {};
+        let focusEnemiesIdList = ["CERBERUS","SEA_GOD","THUNDER_GOD"];
+        let enemyLists = enemyPlayer.heroes;
+        let lowestHPHero;
+        let aliveEnemyHeroID= [];
+        let currentLowestHP = 100000;
+        
+        enemyLists.forEach(hero => {
+            if(hero.hp > 0){
+                if(hero.hp <= currentLowestHP) {
+                    currentLowestHP = hero.hp;
+                    lowestHPHero = hero;
+                }
+                aliveEnemyHeroID.push(hero.id);
+            }
+        });
+
+        //Penguin Cast
+        if(castedHero.id == "SEA_SPIRIT") {
+            console.log("SEA_SPIRIT casting");
+            let cerberus = this.heroes[2];
+            if(cerberus.isAlive()){
+                targetObj = { targetId: cerberus.id,selectedGem: null,gemIndex:null , isTargetAllyOrNot:true};
+            }
+            else return targetObj;
+        }
+        //Fire Spirit Cast 
+        if(castedHero.id == "FIRE_SPIRIT"){
+            console.log("FIRE_SPIRIT casting");
+            let filterEnemy = [];
+            focusEnemiesIdList.forEach(focusId => {
+                aliveEnemyHeroID.forEach(id => {
+                    if(id == focusId) filterEnemy.push(id);
+                });
+            });;
+
+            //Instant kill the lowest HP hero
+            if(lowestHPHero.attack + grid.getRedGemCount() >= currentLowestHP) {
+                console.log("killing lowsest");
+               return targetObj = { targetId: lowestHPHero.id, selectedGem: null,gemIndex:null , isTargetAllyOrNot:false};
+            }
+
+            //Focus hero 
+            else {
+                console.log("focus hero on list"); 
+                targetObj = { targetId: focusEnemiesIdList[0], selectedGem: null,gemIndex:null , isTargetAllyOrNot:false};
+            }
+        }
+        return targetObj;
     }
 
     getRecommendGemType() {

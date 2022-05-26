@@ -389,7 +389,7 @@ function StartTurn(param) {
 		
 		if (heroFullMana != null) {
 			console.log("cast skill");
-			SendCastSkill(heroFullMana)
+			SendCastSkill(heroFullMana, botPlayer.getOptimizeSkillList(heroFullMana));
 		} 
 		else if(enemyHeroDieWhenAttack == true) {
 			console.log("send kill");
