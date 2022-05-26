@@ -447,7 +447,6 @@ function SendCastSkill(heroCastSkill, { targetId, selectedGem, gemIndex, isTarge
 
 function SendSwapGem(swap) {
 	let indexSwap = swap ? swap.getIndexSwapGem() : grid.recommendSwapGem();
-	debugger
 	log("sendExtensionRequest()|room:" + room.Name + "|extCmd:" + SWAP_GEM + "|index1: " + indexSwap[0] + " index2: " + indexSwap[1]);
 	trace("sendExtensionRequest()|room:" + room.Name + "|extCmd:" + SWAP_GEM + "|index1: " + indexSwap[0] + " index2: " + indexSwap[1]);
 

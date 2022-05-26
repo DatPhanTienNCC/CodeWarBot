@@ -40,6 +40,8 @@ class Grid {
             return [-1, -1];
         }
 
+        debugger
+
         let matchGemSizeThanFour = listMatchGem.find(gemMatch => gemMatch.sizeMatch > 4);
 
         if (matchGemSizeThanFour) {
@@ -55,44 +57,33 @@ class Grid {
         let matchGemBlue = listMatchGem.find(gemMatch => gemMatch.type == GemType.BLUE);
 
         if (matchGemBlue && botPlayer.checkHeroGemIsUsable(GemType.BLUE)) {
-            console.log("match blue");
             return matchGemBlue.getIndexSwapGem();
         }
         let matchGemBrown = listMatchGem.find(gemMatch => gemMatch.type == GemType.BROWN);
 
         if (matchGemBrown && botPlayer.checkHeroGemIsUsable(GemType.BROWN)) {
-            console.log("match brown");
-            console.log(matchGemBrown.getIndexSwapGem());
             return matchGemBrown.getIndexSwapGem();
         }
 
         let matchGemPurple = listMatchGem.find(gemMatch => gemMatch.type == GemType.PURPLE);
 
         if (matchGemPurple && botPlayer.checkHeroGemIsUsable(GemType.PURPLE)) {
-            console.log("match purple");
-            console.log(matchGemPurple.getIndexSwapGem());
             return matchGemPurple.getIndexSwapGem();
         }
         let matchGemRed = listMatchGem.find(gemMatch => gemMatch.type == GemType.RED);
 
         if (matchGemRed && botPlayer.checkHeroGemIsUsable(GemType.RED)) {
-            console.log("match red");
-            console.log(matchGemRed.getIndexSwapGem());
             return matchGemRed.getIndexSwapGem();
         }
 
         let matchGemGreen = listMatchGem.find(gemMatch => gemMatch.type == GemType.GREEN);
 
         if (matchGemGreen && botPlayer.checkHeroGemIsUsable(GemType.GREEN)) {
-            console.log("match green");
-            console.log(matchGemGreen.getIndexSwapGem());
             return matchGemGreen.getIndexSwapGem();
         }
         let matchGemYellow = listMatchGem.find(gemMatch => gemMatch.type == GemType.YELLOW);
 
         if (matchGemYellow && botPlayer.checkHeroGemIsUsable(GemType.YELLOW)) {
-            console.log("match yellow");
-            console.log(matchGemYellow.getIndexSwapGem());
             return matchGemYellow.getIndexSwapGem();
         }
 
@@ -111,6 +102,8 @@ class Grid {
             return [-1, -1];
         }
 
+        debugger
+
         let matchGemSword = listMatchGem.find(gemMatch => gemMatch.type == GemType.SWORD);
 
         if (matchGemSword) {
@@ -132,44 +125,33 @@ class Grid {
         let matchGemBlue = listMatchGem.find(gemMatch => gemMatch.type == GemType.BLUE);
 
         if (matchGemBlue && botPlayer.checkHeroGemIsUsable(GemType.BLUE)) {
-            console.log("match blue");
             return matchGemBlue.getIndexSwapGem();
         }
         let matchGemBrown = listMatchGem.find(gemMatch => gemMatch.type == GemType.BROWN);
 
         if (matchGemBrown && botPlayer.checkHeroGemIsUsable(GemType.BROWN)) {
-            console.log("match brown");
-            console.log(matchGemBrown.getIndexSwapGem());
             return matchGemBrown.getIndexSwapGem();
         }
 
         let matchGemPurple = listMatchGem.find(gemMatch => gemMatch.type == GemType.PURPLE);
 
         if (matchGemPurple && botPlayer.checkHeroGemIsUsable(GemType.PURPLE)) {
-            console.log("match purple");
-            console.log(matchGemPurple.getIndexSwapGem());
             return matchGemPurple.getIndexSwapGem();
         }
         let matchGemRed = listMatchGem.find(gemMatch => gemMatch.type == GemType.RED);
 
         if (matchGemRed && botPlayer.checkHeroGemIsUsable(GemType.RED)) {
-            console.log("match red");
-            console.log(matchGemRed.getIndexSwapGem());
             return matchGemRed.getIndexSwapGem();
         }
 
         let matchGemGreen = listMatchGem.find(gemMatch => gemMatch.type == GemType.GREEN);
 
         if (matchGemGreen && botPlayer.checkHeroGemIsUsable(GemType.GREEN)) {
-            console.log("match green");
-            console.log(matchGemGreen.getIndexSwapGem());
             return matchGemGreen.getIndexSwapGem();
         }
         let matchGemYellow = listMatchGem.find(gemMatch => gemMatch.type == GemType.YELLOW);
 
         if (matchGemYellow && botPlayer.checkHeroGemIsUsable(GemType.YELLOW)) {
-            console.log("match yellow");
-            console.log(matchGemYellow.getIndexSwapGem());
             return matchGemYellow.getIndexSwapGem();
         }
     }

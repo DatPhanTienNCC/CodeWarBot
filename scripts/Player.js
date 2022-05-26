@@ -75,10 +75,9 @@ class Player
         console.log(type);
         let arr = this.heroes.filter(hero => hero.isAlive());
         arr.forEach(hero => {
-            console.log(hero.gems);
             let gems = hero.gems;
                 gems.forEach(gem => {
-                    return gem == type;
+                    return gem.toString() === type;
                 });
         });
     }
