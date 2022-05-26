@@ -179,7 +179,7 @@ function onLoginBtnClick() {
 	let data = new SFS2X.SFSObject();
 	data.putUtfString("BATTLE_MODE", "NORMAL");
 	data.putUtfString("ID_TOKEN", token);
-	data.putUtfString("NICK_NAME", uName);
+	data.putUtfString("NICK_NAME", "Bát Củ ");
 
 	var isSent = sfs.send(new SFS2X.LoginRequest(uName, "", data, "gmm"));
 
@@ -446,14 +446,8 @@ function SendCastSkill(heroCastSkill, { targetId, selectedGem, gemIndex, isTarge
 }
 
 function SendSwapGem(swap) {
-	let indexSwap;
-	if(swap) {
-		indexSwap = swap ? swap.getIndexSwapGem() : grid.recommendSwapGemSword();
-	}
-	else {
-		indexSwap = swap ? swap.getIndexSwapGem() : grid.recommendSwapGem();
-	}
-
+	let indexSwap = swap ? swap.getIndexSwapGem() : grid.recommendSwapGem();
+	debugger
 	log("sendExtensionRequest()|room:" + room.Name + "|extCmd:" + SWAP_GEM + "|index1: " + indexSwap[0] + " index2: " + indexSwap[1]);
 	trace("sendExtensionRequest()|room:" + room.Name + "|extCmd:" + SWAP_GEM + "|index1: " + indexSwap[0] + " index2: " + indexSwap[1]);
 
