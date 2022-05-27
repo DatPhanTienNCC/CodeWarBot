@@ -39,17 +39,13 @@ class Player
     //     return hero;
     // }
 
-
-
     anyHeroFullMana() {
         let arr = this.heroes.filter(hero => hero.isAlive() && hero.isFullMana());
         let selectedHero = arr[0];
-        if(arr[0] != null) {
-            //TODO 5 red dont use skill
-            // If red < 5 dont use skill FIRE SPIRIT
-                if(selectedHero.id == "FIRE_SPIRIT") {
-                    if(grid.getRedGemCount < 5) return null;
-                }
+        if(selectedHero){
+            if(selectedHero.id == "FIRE_SPIRIT") {
+                if(grid.getRedGemCount < 5) return null;
+            }
         }
         
         let hero = arr != null && arr != undefined && arr.length > 0 ? selectedHero : null;
@@ -121,14 +117,14 @@ class Player
 
             //Instant kill the lowest HP hero
             if(lowestHPHero.attack + grid.getRedGemCount() >= currentLowestHP) {
-                console.log("killing lowsest");
+               console.log("killing lowsest");
                return targetObj = { targetId: lowestHPHero.id, selectedGem: null,gemIndex:null , isTargetAllyOrNot:false};
             }
 
             //Focus hero 
-            else if(focusEnemiesIdList.length > 0) {
+            else if(filterEnemy[0])  {
                 console.log("focus hero on list"); 
-                targetObj = { targetId: focusEnemiesIdList[0], selectedGem: null,gemIndex:null , isTargetAllyOrNot:false};
+                targetObj = { targetId: filterEnemy[0], selectedGem: null,gemIndex:null , isTargetAllyOrNot:false};
             }
         }
         return targetObj;
