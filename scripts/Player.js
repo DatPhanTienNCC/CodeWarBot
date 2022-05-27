@@ -80,7 +80,7 @@ class Player
         //if target enemy -> cast on CERBERUS / Trau / Zues / Instant Kill
         //if target allies-> cast CERBERRUS
         let targetObj = {};
-        let focusEnemiesIdList = ["THUNDER_GOD","CERBERUS","SEA_GOD"];
+        let focusEnemiesIdList = ["SEA_GOD","THUNDER_GOD","CERBERUS","FIRE_SPIRIT"];
         let enemyLists = enemyPlayer.heroes;
         let lowestHPHero;
         let aliveEnemyHeroID= [];
