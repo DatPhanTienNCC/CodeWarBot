@@ -356,11 +356,12 @@ function EndGame() {
 
 
 function SendFinishTurn(isFirstTurn) {
+	console.log("sending finish turn");
 	let data = new SFS2X.SFSObject();
 	data.putBool("isFirstTurn", isFirstTurn);
 	log("sendExtensionRequest()|room:" + room.name + "|extCmd:" + FINISH_TURN + " first turn " + isFirstTurn);
 	trace("sendExtensionRequest()|room:" + room.name + "|extCmd:" + FINISH_TURN + " first turn " + isFirstTurn);
-
+	
 	SendExtensionRequest(FINISH_TURN, data);
 
 }
@@ -389,6 +390,7 @@ function StartTurn(param) {
 		
 		if (heroFullMana != null) {
 			console.log("cast skill");
+			if(heroFullMana.isAlive())
 			SendCastSkill(heroFullMana, botPlayer.getOptimizeSkillList(heroFullMana));
 		} 
 		else if(enemyHeroDieWhenAttack == true) {
@@ -509,7 +511,7 @@ function HandleGems(paramz) {
 
 	grid.updateGems(gemCode, gemModifiers);
 
-	// setTimeout(function () { SendFinishTurn(false) }, delaySwapGem);
+	setTimeout(function () { SendFinishTurn(false) }, delaySwapGem);
 }
 
 function HandleHeroes(paramz) {
