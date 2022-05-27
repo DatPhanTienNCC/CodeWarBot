@@ -71,17 +71,6 @@ class Grid {
             return matchGemSword.getIndexSwapGem();
         }
 
-        let matchGemBlue = listMatchGem.find(gemMatch => gemMatch.type == GemType.BLUE);
-
-        if (matchGemBlue && botPlayer.checkHeroGemIsUsable(GemType.BLUE)) {
-            return matchGemBlue.getIndexSwapGem();
-        }
-        let matchGemBrown = listMatchGem.find(gemMatch => gemMatch.type == GemType.BROWN);
-
-        if (matchGemBrown && botPlayer.checkHeroGemIsUsable(GemType.BROWN)) {
-            return matchGemBrown.getIndexSwapGem();
-        }
-
         let matchGemPurple = listMatchGem.find(gemMatch => gemMatch.type == GemType.PURPLE);
 
         if (matchGemPurple && botPlayer.checkHeroGemIsUsable(GemType.PURPLE)) {
@@ -91,6 +80,17 @@ class Grid {
 
         if (matchGemRed && botPlayer.checkHeroGemIsUsable(GemType.RED)) {
             return matchGemRed.getIndexSwapGem();
+        }
+
+        let matchGemBlue = listMatchGem.find(gemMatch => gemMatch.type == GemType.BLUE);
+
+        if (matchGemBlue && botPlayer.checkHeroGemIsUsable(GemType.BLUE)) {
+            return matchGemBlue.getIndexSwapGem();
+        }
+        let matchGemBrown = listMatchGem.find(gemMatch => gemMatch.type == GemType.BROWN);
+
+        if (matchGemBrown && botPlayer.checkHeroGemIsUsable(GemType.BROWN)) {
+            return matchGemBrown.getIndexSwapGem();
         }
 
         return listMatchGem[0].getIndexSwapGem();
@@ -135,17 +135,6 @@ class Grid {
             return matchGemYellow.getIndexSwapGem();
         }
 
-        let matchGemBlue = listMatchGem.find(gemMatch => gemMatch.type == GemType.BLUE);
-
-        if (matchGemBlue && botPlayer.checkHeroGemIsUsable(GemType.BLUE)) {
-            return matchGemBlue.getIndexSwapGem();
-        }
-        let matchGemBrown = listMatchGem.find(gemMatch => gemMatch.type == GemType.BROWN);
-
-        if (matchGemBrown && botPlayer.checkHeroGemIsUsable(GemType.BROWN)) {
-            return matchGemBrown.getIndexSwapGem();
-        }
-
         let matchGemPurple = listMatchGem.find(gemMatch => gemMatch.type == GemType.PURPLE);
 
         if (matchGemPurple && botPlayer.checkHeroGemIsUsable(GemType.PURPLE)) {
@@ -155,6 +144,18 @@ class Grid {
 
         if (matchGemRed && botPlayer.checkHeroGemIsUsable(GemType.RED)) {
             return matchGemRed.getIndexSwapGem();
+        }
+
+
+        let matchGemBlue = listMatchGem.find(gemMatch => gemMatch.type == GemType.BLUE);
+
+        if (matchGemBlue && botPlayer.checkHeroGemIsUsable(GemType.BLUE)) {
+            return matchGemBlue.getIndexSwapGem();
+        }
+        let matchGemBrown = listMatchGem.find(gemMatch => gemMatch.type == GemType.BROWN);
+
+        if (matchGemBrown && botPlayer.checkHeroGemIsUsable(GemType.BROWN)) {
+            return matchGemBrown.getIndexSwapGem();
         }
 
         return listMatchGem[0].getIndexSwapGem();
