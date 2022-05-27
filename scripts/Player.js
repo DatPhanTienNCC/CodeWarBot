@@ -44,11 +44,14 @@ class Player
     anyHeroFullMana() {
         let arr = this.heroes.filter(hero => hero.isAlive() && hero.isFullMana());
         let selectedHero = arr[0];
-        //TODO 5 red dont use skill
-        //If red < 5 dont use skill FIRE SPIRIT
-        // if(selectedHero.id == "FIRE_SPIRIT") {
-        //      if(grid.getRedGemCount < 5) return null;
-        // }
+        if(arr[0] != null) {
+            //TODO 5 red dont use skill
+            // If red < 5 dont use skill FIRE SPIRIT
+                if(selectedHero.id == "FIRE_SPIRIT") {
+                    if(grid.getRedGemCount < 5) return null;
+                }
+        }
+        
         let hero = arr != null && arr != undefined && arr.length > 0 ? selectedHero : null;
         return hero;
     }
@@ -81,7 +84,7 @@ class Player
         //if target enemy -> cast on CERBERUS / Trau / Zues / Instant Kill
         //if target allies-> cast CERBERRUS
         let targetObj = {};
-        let focusEnemiesIdList = ["CERBERUS","SEA_GOD","THUNDER_GOD"];
+        let focusEnemiesIdList = ["THUNDER_GOD","CERBERUS","SEA_GOD"];
         let enemyLists = enemyPlayer.heroes;
         let lowestHPHero;
         let aliveEnemyHeroID= [];
@@ -123,7 +126,7 @@ class Player
             }
 
             //Focus hero 
-            else {
+            else if(focusEnemiesIdList.length > 0) {
                 console.log("focus hero on list"); 
                 targetObj = { targetId: focusEnemiesIdList[0], selectedGem: null,gemIndex:null , isTargetAllyOrNot:false};
             }

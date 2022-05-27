@@ -45,14 +45,12 @@ class Grid {
         let matchGemSizeThanFour = listMatchGem.find(gemMatch => gemMatch.sizeMatch > 4);
 
         if (matchGemSizeThanFour) {
-            debugger
             return matchGemSizeThanFour.getIndexSwapGem();
         }
 
         let matchGemSizeThanThree = listMatchGem.find(gemMatch => gemMatch.sizeMatch > 3);
 
         if (matchGemSizeThanThree) {
-            debugger
             return matchGemSizeThanThree.getIndexSwapGem();
         }
 
@@ -118,13 +116,11 @@ class Grid {
         let matchGemSizeThanFour = listMatchGem.find(gemMatch => gemMatch.sizeMatch > 4);
 
         if (matchGemSizeThanFour) {
-            debugger
             return matchGemSizeThanFour.getIndexSwapGem();
         }
         let matchGemSizeThanThree = listMatchGem.find(gemMatch => gemMatch.sizeMatch > 3);
 
         if (matchGemSizeThanThree) {
-            debugger
             return matchGemSizeThanThree.getIndexSwapGem();
         }
 
