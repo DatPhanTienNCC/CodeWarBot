@@ -56,7 +56,7 @@ class Player
         let enemyHeros = enemyPlayer.heroes;
         let firstEnemyHero = enemyHeros.filter(hero => hero.hp > 0)[0];
         let firstPlayerHero = this.getHerosAlive()[0];
-        return firstPlayerHero.attack > firstEnemyHero.hp;
+        return firstPlayerHero.attack >= firstEnemyHero.hp;
     }
 
     firstHeroAlive() {
